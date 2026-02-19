@@ -5,7 +5,7 @@ import joblib
 import matplotlib.pyplot as plt
 
 # Load Dataset
-df = pd.read_csv("data/T1.csv")
+df = pd.read_csv("Data/T1.csv")
 
 # Rename columns properly
 df.rename(columns={
@@ -51,3 +51,4 @@ plt.show()
 # Save Model
 joblib.dump(model, "power_prediction.sav")
 print("Model Saved Successfully!")
+
