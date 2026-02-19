@@ -6,7 +6,7 @@ import requests
 app = Flask(__name__)
 
 # Load trained ML model
-model = joblib.load("power_prediction.sav")
+model = joblib.load("power_prediction.sav")  # Ensure this path is correct
 
 # 🔑 Replace this with your real OpenWeather API key
 API_KEY = "feef6773a4dec2a99a50c5ae96d75c37"
@@ -80,7 +80,8 @@ def predict():
 
                 prediction = round(model.predict(input_data)[0], 2)
 
-            except:
+            except Exception as e:
+                print("PREDICTION ERROR:", e)
                 prediction = "Invalid Input"
 
     return render_template(
